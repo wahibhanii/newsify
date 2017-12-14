@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors')
 require('dotenv').config()
 
-
+const dummy = require('./routes/dummy')
 const index = require('./routes/index');
 const users = require('./routes/users');
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/api/users', users);
-
+app.use('/dummy', dummy)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   let err = new Error('Not Found');
