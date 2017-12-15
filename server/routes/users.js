@@ -1,25 +1,19 @@
 const express = require('express');
 const router  = express.Router();
 const UserController   = require('../controllers/userController')
-const NewsController   = require('../controllers/newsController')
-/* GET users listing. */
-router.get('/:id', UserController.findUserByFbId)
+
+// ----- Find user by facebook ID, if not found, create new user data on database
+router.get('/', UserController.findUserByFbId)
 
 // router.post('/', UserController.addUser) >>>>>>>>> TO BE DEPRECATED <<<<<<<<<<<<
 
+// ----- Delete user from database, for development purpose only
 router.delete('/:id', UserController.deleteUser)
 
+// ----- Add news to user's reading list
 router.post('/addnews', UserController.addUserNews)
 
-
-router.post('/news', (req, res)=>{
-  NewsController.findOrCreateNews(req.body)
-  .then(result => {
-    res.send(result)
-  })
-  .catch(err => {
-    res.send(err)
-  })
-})
+// ----- Remove news to user's reading list
+router.post('/removenews', UserController.removeUserNews)
 
 module.exports = router;
