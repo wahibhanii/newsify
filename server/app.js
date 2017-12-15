@@ -7,10 +7,15 @@ const bodyParser = require('body-parser');
 var cors = require('cors')
 require('dotenv').config()
 
+const mongoose = require('mongoose');
+mongoose.connect(`mongodb://wahibhacktiv8:${process.env.DB_PASSWORD}@wahib-hacktiv8-shard-00-00-uyl7c.mongodb.net:27017,wahib-hacktiv8-shard-00-01-uyl7c.mongodb.net:27017,wahib-hacktiv8-shard-00-02-uyl7c.mongodb.net:27017/newsifiy?ssl=true&replicaSet=wahib-hacktiv8-shard-0&authSource=admin`,{ useMongoClient: true });
+
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const news = require('./routes/news')
+const news = require('./routes/news');
+
+// mongoose.Promise = global.Promise
 
 const app = express();
 

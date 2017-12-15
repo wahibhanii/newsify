@@ -1,4 +1,4 @@
-const News = require('../models/news')
+const News = require('../models/dbNews')
 const ObjectId = require('mongodb').ObjectId;
 
 class NewsController {

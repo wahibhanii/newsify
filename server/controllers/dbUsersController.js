@@ -1,4 +1,4 @@
-const User            = require('../models/user')
+const User            = require('../models/dbUser')
 const ObjectId        = require('mongodb').ObjectId;
 const NewsController  = require('../controllers/dbNewsController')
 
@@ -24,7 +24,7 @@ class UserController {
         })
       } else {
         res.status(200).json({
-          message: 'User Found...!',
+          message: 'User Found...! yaaa',
           data: dataUser})
       }
     })
