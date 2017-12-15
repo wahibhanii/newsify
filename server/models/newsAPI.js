@@ -9,6 +9,7 @@ class News {
   static topHeadlines() {
     let promise = new Promise(function(resolve,reject) {
       newsapi.v2.topHeadlines({
+        sources : 'bbc-news',
         language: 'en',
         page: 2
       }, function(error,data){
