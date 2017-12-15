@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 var cors = require('cors')
 require('dotenv').config()
 
+
+const dummy = require('./routes/dummy')
 const mongoose = require('mongoose');
 mongoose.connect(`mongodb://wahibhacktiv8:${process.env.DB_PASSWORD}@wahib-hacktiv8-shard-00-00-uyl7c.mongodb.net:27017,wahib-hacktiv8-shard-00-01-uyl7c.mongodb.net:27017,wahib-hacktiv8-shard-00-02-uyl7c.mongodb.net:27017/newsifiy?ssl=true&replicaSet=wahib-hacktiv8-shard-0&authSource=admin`,{ useMongoClient: true });
 
@@ -34,6 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/api/users', users);
+
+app.use('/dummy', dummy)
+
 app.use('/api/news', news)
 
 // catch 404 and forward to error handler
