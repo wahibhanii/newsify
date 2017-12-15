@@ -25,6 +25,7 @@
                 localStorage.setItem('token', response.authResponse.accessToken)
                 localStorage.setItem('id', data.data.id)
                 localStorage.setItem('name', data.data.name)
+                window.location.replace("/home.html")
           }
       });
     // The response object is returned with a status field that lets the

@@ -7,11 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.headers.token);
+  console.log('masuk routing share');
+  console.log(req.headers);
   FB.setAccessToken(req.headers.token);
 
-  let body = 'http://www.mtv.com/news/3053026/finn-wolfhard-stranger-things-it-google-most-searched-2017/';
-  let picUrl = 'https://imagesmtv-a.akamaihd.net/uri/mgid:ao:image:mtv.com:260093?height=729&width=1296&format=jpg&quality=.7'
+
+  let body = req.headers.linknews;
+  let picUrl = req.headers.linkimage
   FB.api('me/feed', 'post', {
      link: body,
      picture: picUrl

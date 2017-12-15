@@ -11,6 +11,7 @@
     <meta name="HandheldFriendly" content="true"/>
     <link rel="stylesheet" href="assets/css/master.css"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="l-theme animated-css" data-header="sticky" data-header-top="200" data-canvas="container">
@@ -106,29 +107,9 @@
                 <div>
                   <!-- end .post-->
                   <div class="posts-group-2">
-                    <section class="b-post b-post_img-left b-post_img-260 b-post_img-260_mrg-btm_sm clearfix">
-                      <div class="entry-media">
-                        <a class="img-hover-effect"><img class="img-responsive hov-scal img-border" src="assets/media/content/posts/260x200/2.jpg" alt="Foto"/></a></div>
-                      <div class="entry-main">
-                        <div class="entry-header">
-                          <h2 class="entry-title"><a href="#">Testing Iklan</a></h2>
-                          <div class="entry-meta"><span class="entry-meta__item"><a class="entry-meta__link" href="blog-main.html">
-                            <strong>BBC NEWS</strong></a></span>
-                            <span class="entry-meta__item"><a class="entry-meta__link" href="#"><strong>june 30, 2017</strong></a></span>
-                            <span class="entry-meta__item"><i class="icon fa fa-heart-o text-second"></i><a class="entry-meta__link" href="#">50</a></span>
-                            <span class="entry-meta__item"><i class="icon fa fa-comment-o text-primary"></i><a class="entry-meta__link" href="#">29</a></span>
-                          </div>
-                        </div>
-                        <div class="entry-content">
-                          <p>Brem ipsum dolor sit amt consectetur adipisicing elit sed eiusmod tempor incididunt ut labore dolore magna aliqua uat enim minim veniam quis nostrud exercitation ullamco.</p>
-                          <span>
-                              <button type="button"><a href="#">Read More</a></button>
-                              <button type="button"><a href="#">Save News</a></button>
-                              <button type="button"><a href="#">Share News</a></button>
-                          </span>
-                        </div>
-                      </div>
-                    </section>
+                    <!-- LOOPING HERE -->
+
+                    <!-- END OF LOOPING -->
                     <!-- end .post-->
                   </div>
                 </div>
@@ -230,6 +211,7 @@
               <div class="col-xs-12">
                 <ul class="copyright-list list-inline">
                 </ul><span class="copyright__info">©  2017<strong> NEWSPAPER</strong> ® All Right Reserved</span>
+                <button type="button" onclick="clickShare()">jadsghagsdhjasgdjhdsgah</button>
               </div>
             </div>
           </div>
@@ -239,7 +221,103 @@
     </div>
     <!-- end layout-theme-->
 
+    <!-- MVP -->
+    <script>
+    axios({
+      method: 'get',
+      url:'http://localhost:3000/api/users',
+      headers: {
+        token: localStorage.getItem('token'),
+        fbid: localStorage.getItem('id'),
+        fbname: localStorage.getItem('name')
+      }
+    })
+    .then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
 
+    // let getFeed = function() {
+      axios({
+        method: 'get',
+        url:'http://localhost:3000/api/news/topHeadlines/'
+      })
+      .then((dataNews) => {
+        console.log(dataNews);
+        dataNews.data.articles.forEach(rows => {
+          let clickShares = function() {
+            console.log('masuk share');
+            axios({
+              method: 'post',
+              url:'http://localhost:3000/dummy',
+              headers: {
+                token: localStorage.getItem('token'),
+                fbid: localStorage.getItem('id'),
+                fbname: localStorage.getItem('name'),
+                linknews: rows.url,
+                linkimage: rows.urlToimage
+              }
+            })
+            .then((res) => {
+              console.log(res);
+            }).catch((err) => {
+              console.log(err);
+            })
+          }
+          // console.log('masukkkkkkkkkkkkkkkkk sini');
+          $('.posts-group-2').append(
+            `<section class="b-post b-post_img-left b-post_img-260 b-post_img-260_mrg-btm_sm clearfix">
+              <div class="entry-media">
+                <a class="img-hover-effect"><img class="img-responsive hov-scal img-border" src=${rows.urlToimage} alt="Foto"/></a></div>
+              <div class="entry-main">
+                <div class="entry-header">
+                  <h2 class="entry-title"><a href="#">${rows.title}</a></h2>
+                  <div class="entry-meta"><span class="entry-meta__item"><a class="entry-meta__link" href="">
+                    <strong>${rows.source.name}</strong></a></span>
+                    <span class="entry-meta__item"><a class="entry-meta__link" href="#"><strong>${rows.publishedAt.toString()}</strong></a></span>
+                    <span class="entry-meta__item"><i class="icon fa fa-heart-o text-second"></i><a class="entry-meta__link" href="#">50</a></span>
+                    <span class="entry-meta__item"><i class="icon fa fa-comment-o text-primary"></i><a class="entry-meta__link" href="#">29</a></span>
+                  </div>
+                </div>
+                <div class="entry-content">
+                  <p>${rows.description}</p>
+                  <span>
+                      <button type="button"><a href="#">Read More</a></button>
+                      <button type="button"><a href="#">Save News</a></button>
+                      <button type="button" onclick="clickShares()"><a href="#">Share News</a></button>
+                  </span>
+                </div>
+              </div>
+            </section>`
+          )
+        })
+      }).catch((err) => {
+        console.log(err);
+      })
+    // }
+
+    let clickShare = function() {
+      log('masuk')
+      axios({
+        method: 'post',
+        url:'http://localhost:3000/dummy',
+        headers: {
+          token: localStorage.getItem('token'),
+          fbid: localStorage.getItem('id'),
+          fbname: localStorage.getItem('name')
+        }
+      })
+      .then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+
+
+    </script>
+    <!-- ENF OF MVP -->
     <!-- ++++++++++++-->
     <!-- MAIN SCRIPTS-->
     <!-- ++++++++++++-->

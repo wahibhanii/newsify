@@ -50,8 +50,9 @@ class UserController {
   // } >>>>>>>>>>>>> TO BE DEPRECATED <<<<<<<<<<<<<<<<<<
 
   static addUserNews(req, res, next){
+    console.log('masuk', req.headers);
     let newsId
-    let userId = req.headers.userid
+    let userId = req.headers.fbid
     let newsObj = {
       source      : JSON.parse(req.body.source),
       author      : req.body.author,
@@ -64,8 +65,9 @@ class UserController {
     NewsController.findOrCreateNews(newsObj)
     .then(newsResult => {
       newsId = newsResult._id
-      User.findOne({_id: userId})
+      User.findOne({fbId: userId})
       .then(dataUser => {
+        console.log(dataUser);
         let newNews = dataUser.news
         if (newNews.indexOf(newsId) === -1){
           console.log('no news entry found, adding news...')
@@ -140,9 +142,9 @@ class UserController {
         res.status(500).send(err)
       })
   }
-  
 
-  static deleteUser(req, res, next){  
+
+  static deleteUser(req, res, next){
     User.deleteOne({_id : ObjectId(req.params.id)})
     .then(result => {
       res.status(200).json(result)
@@ -161,4 +163,3 @@ module.exports = UserController
 // Search news
 // add
 // delete
-
