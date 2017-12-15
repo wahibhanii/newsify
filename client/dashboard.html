@@ -11,28 +11,29 @@
     <title></title>
   </head>
   <body>
-    <a
+    <button onclick="clickShare()"> post </button>
+    <!-- <a
         class="fb-xfbml-parse-ignore"
         target="_blank"
-        href="https://www.facebook.com/sharer/sharer.php?u=github.com">Share</a>
+        href="https://www.facebook.com/sharer/sharer.php?u=github.com">Share</a> -->
 
     <script>
-    // axios({
-    //   method: 'get',
-    //   url:'http://localhost:3000/dummy',
-    //   headers: {
-    //     token: localStorage.getItem('token'),
-    //     fbid: localStorage.getItem('id'),
-    //     fbname: localStorage.getItem('name')
-    //   }
-    // })
-    // .then((res) => {
-    //
-    // }).catch((err) => {
-    //
-    // })
+    axios({
+      method: 'get',
+      url:'http://localhost:3000/dummy',
+      headers: {
+        token: localStorage.getItem('token'),
+        fbid: localStorage.getItem('id'),
+        fbname: localStorage.getItem('name')
+      }
+    })
+    .then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
 
-
+    let clickShare = function() {
       axios({
         method: 'post',
         url:'http://localhost:3000/dummy',
@@ -43,10 +44,12 @@
         }
       })
       .then((res) => {
-
+        console.log(res);
       }).catch((err) => {
-
+        console.log(err);
       })
+    }
+
 
     </script>
   </body>

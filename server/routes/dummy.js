@@ -5,11 +5,12 @@ const FB = require('fb')
 router.get('/', function(req, res, next) {
   console.log(req.headers.fbid, req.headers.fbname, req.headers.token);
 });
+
 router.post('/', function(req, res, next) {
   console.log(req.headers.token);
   FB.setAccessToken(req.headers.token);
 
-  var body = 'My first post using facebook-node-sdk';
+  var body = 'https://www.google.com';
   FB.api('me/feed', 'post', { message: body }, function (res) {
     if(!res || res.error) {
       console.log(!res ? 'error occurred' : res.error);
