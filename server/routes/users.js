@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const UserController   = require('../controllers/userController')
+const UserController   = require('../controllers/dbUsersController')
 
 // ----- Find user by facebook ID, if not found, create new user data on database
 router.get('/', UserController.findUserByFbId)
