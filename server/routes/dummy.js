@@ -7,11 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.headers.token);
+  console.log('masuk routing share');
+  console.log(req.headers);
   FB.setAccessToken(req.headers.token);
-  console.log('test');
 
-  let body = req.headers.linkurl
+
+  let body = req.headers.linknews;
   let picUrl = req.headers.linkimage
   FB.api('me/feed', 'post', {
      link: body,
