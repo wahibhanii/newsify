@@ -5,7 +5,7 @@ const NewsController  = require('../controllers/newsController')
 
 class UserController {
   static findUserByFbId(req, res, next){
-    User.findOne({fbId: req.params.id}).populate('news')
+    User.findOne({fbId: req.headers.fbid}).populate('news')
     .then( dataUser => {
       if (dataUser === null){
         let newUser = {
@@ -13,7 +13,6 @@ class UserController {
           fbName    : req.headers.fbname,
           news      : []
         }
-        console.log(newUser,'<< ini newUser')
         User.create(newUser)
         .then(result => {
           res.status(200).json({
@@ -51,8 +50,6 @@ class UserController {
   // } >>>>>>>>>>>>> TO BE DEPRECATED <<<<<<<<<<<<<<<<<<
 
   static addUserNews(req, res, next){
-    //findorcreate news
-    //.then push newsId to User.news
     let newsId
     let userId = req.headers.userid
     let newsObj = {
@@ -66,12 +63,9 @@ class UserController {
     }
     NewsController.findOrCreateNews(newsObj)
     .then(newsResult => {
-      console.log('------------>> ',userId)
       newsId = newsResult._id
       User.findOne({_id: userId})
       .then(dataUser => {
-        // res.send(dataUser)
-        console.log('++++++++++',dataUser)
         let newNews = dataUser.news
         if (newNews.indexOf(newsId) === -1){
           console.log('no news entry found, adding news...')
@@ -81,8 +75,6 @@ class UserController {
             fbName  : dataUser.fbName,
             news    : newNews
           }
-          console.log(newsId,'=======', newUserData.news)
-          // res.send(newUserData)
           User.update({_id: userId}, newUserData)
           .then(result => {
             res.status(200).json({
@@ -111,10 +103,42 @@ class UserController {
     })
   }
 
-  static deleteUserNews(){
-
-
-
+  static removeUserNews(req, res, next){
+    let userId = req.headers.userid
+    let newsId = req.body._id
+      User.findOne({_id: userId})
+      .then(dataUser => {
+        if (dataUser.news.indexOf(newsId) === -1){
+          console.log('no news entry found, do nothing...')
+          res.status(200).json({
+            message: 'no news entry found, do nothing...',
+          })
+        } else {
+          let newNews = dataUser.news
+          newNews.splice(newNews.indexOf(newsId),1)
+          let newUserData = {
+            fbId    : dataUser.fbId,
+            fbName  : dataUser.fbName,
+            news    : newNews
+          }
+          User.update({_id: userId}, newUserData)
+          .then(result => {
+            console.log('remove news successful')
+            res.status(200).json({
+              message: 'remove news successful',
+              data: result
+            })
+          })
+          .catch(err => {
+            console.log(err)
+            res.status(500).send(err)
+          })
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send(err)
+      })
   }
   
 
