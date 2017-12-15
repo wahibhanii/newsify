@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Newsify</title>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="assets/css/master.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="l-theme animated-css" data-header="sticky" data-header-top="200" data-canvas="container">
+      <!-- ==========================-->
+      <!-- SEARCH MODAL-->
+      <!-- ==========================-->
+      <div class="header-search open-search">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+              <div class="navbar-search">
+                <form class="search-global">
+                  <input class="search-global__input" type="text" placeholder="search...." autocomplete="off" name="s" value=""/>
+                  <button class="search-global__btn"><i class="icon stroke icon-Search"></i></button>
+                  <div class="search-global__note">Type For Search ( example : trump monkey)</div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="search-close close" type="button"><i class="fa fa-times"></i></button>
+      </div>
+   <!-- ==========================-->
+    <!-- FULL SCREEN MENU-->
+    <!-- ==========================-->
+      <header class="header header-boxed-width header-logo-black header-navbar-white header-topbarbox-1-left header-topbarbox-2-right header-navibox-1-left header-navibox-3-right header-navibox-4-right navbar-fixed-top">
+        <div class="container container-boxed-width">
+          <div class="top-bar">
+            <div class="container">
+              <div class="col-sm-9">
+                <div class="header-topbarbox-1"><span class="top-bar__title">breaking news</span>
+                  <div class="top-bar__ticker ticker1">
+                    <ul>
+                      <li>Candra Hacktiv8 Menjadi CEO Opang Pangkalan Jakarta</li>
+                      <li>Ikuti Diet Sukses Ala Hary NP Di Hacktiv8 Channel</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="header-topbarbox-2">
+                  <div class="header-date"><span class="top-bar__title">today is</span><span class="header-date__inner"> desember 15, 2017</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="header-navibox-3">
+              <ul class="nav navbar-nav hidden-xs clearfix vcenter">
+                <li>
+                  <button class="js-toggle-screen toggle-menu-button"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button>
+                </li>
+                <li><a class="btn_header_search" href="#"><i class="fa fa-search"></i></a></li>
+              </ul>
+            </div>
+            <div class="header-navibox-1">
+              <!-- Mobile Trigger Start-->
+              <button class="menu-mobile-button visible-xs-block js-toggle-screen toggle-menu-button"><i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i></button>
+              <!-- Mobile Trigger End--><a class="navbar-brand scroll" href="home.html"><img class="normal-logo img-responsive" src="assets/media/general/logo.png" alt="logo"/><img class="scroll-logo img-responsive hidden-xs" src="assets/media/general/logo-dark.png" alt="logo"/></a>
+            </div>
+          </div>
+          <nav class="navbar" id="nav">
+            <div class="container">
+              <div class="header-navibox-2">
+                <ul class="yamm main-menu nav navbar-nav">
+                  <li><a href="#">world news</a></li>
+                  <li><a href="#">business</a></li>
+                  <li><a href="#">entertainment</a></li>
+                  <li><a href="#">technology</a></li>
+                  <li><a href="#">sport</a></li>
+                  <!-- TRIGGER BUTTON LOGIN FB -->
+
+                  <!-- END OF TRIGGER -->
+                </ul>
+                <ul class="social-links list-inline pull-right">
+                  <li><a href="#"><button type="button"><i class="fa fa-facebook"> Login Facebook</i></button></a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end .header-->
+
+      <!-- Main Content -->
+      <div class="section-type-2 bg-grey">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="ui-title-inner"><span class="ui-title-inner__inner">What’s hot now</span></h2>
+
+              <div>
+                <div>
+                  <!-- end .post-->
+                  <div class="posts-group-2">
+                    <!-- LOOPING HERE -->
+
+                    <!-- END OF LOOPING -->
+                    <!-- end .post-->
+                  </div>
+                </div>
+                <!-- END OF NEWS HOT -->
+              </div><a class="b-banner b-banner-4 b-banner_w-border b-banner_w-border_white" href="home.html"><img class="center-block img-responsive" src="assets/media/components/b-banners/banner-5.jpg" alt="foto"/></a>
+              <!-- end .b-banner-->
+            </div>
+
+            <div class="col-md-4">
+              <aside class="l-sidebar"><a class="b-banner b-banner-5 b-banner_w-border b-banner_w-border_white" href="home.html"><img class="center-block img-responsive" src="assets/media/components/b-banners/banner-4.jpg" alt="foto"/></a>
+                <!-- end .b-banner-->
+                <div class="col_mrg-left_20">
+                  <section class="widget section-sidebar">
+                    <h2 class="widget-title ui-title-inner"><span class="ui-title-inner__inner">trending</span></h2>
+                    <div class="widget-content">
+                      <section class="b-post b-post_img-left b-post_img-65 b-post_img-65_mod-a clearfix">
+                        <div class="entry-media"><a class="js-zoom-images img-hover-effect" href="assets/media/content/posts/65x65/1.jpg"><img class="img-responsive" src="assets/media/content/posts/65x65/1.jpg" alt="Foto"/></a></div>
+                        <div class="entry-main">
+                          <div class="entry-header">
+                            <h2 class="entry-title"><a href="#">Woman endure five years of slavery now</a></h2>
+                            <div class="entry-meta"><span class="entry-meta__item"><a class="entry-meta__link" href="blog-main.html"><strong>june 30, 2017</strong></a></span><span class="entry-meta__item"><i class="icon fa fa-heart-o text-second"></i><a class="entry-meta__link" href="blog-main.html">50</a></span>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <!-- end .post-->
+                    </div>
+                  </section>
+                  <!-- end .widget-->
+
+                  <!-- end .widget-->
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <footer class="footer">
+        <div class="footer__main">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-section"><a class="footer__logo" href="home.html"><img class="img-responsive" src="assets/media/general/logo-footer.png" alt="Logo"/></a>
+                  <div class="footer__info">
+                    <p>
+                        Kami terbentuk dari sel kecebong tapi sebelah mataku yang lain menyadari , gelap adalah teman setia
+                        dari waktu waktu yang hilang .
+                    </p>
+                  </div>
+                  <div class="footer__contact"><i class="icon fa fa-location-arrow"></i> Gedung Delta, Samping Gedung Aquarius Makan</div>
+                  <div class="footer__contact"><i class="icon fa fa-phone"></i> +021 183 - 259 - 18726</div>
+                  <div class="footer__contact"><i class="icon fa fa-envelope"></i> news@gmail.com</div>
+                  <ul class="social-net list-inline">
+                    <li class="social-net__item"><a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-twitter"></i></a></li>
+                    <li class="social-net__item"><a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-facebook"></i></a></li>
+                    <li class="social-net__item"><a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-google-plus"></i></a></li>
+                    <li class="social-net__item"><a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-youtube-play"></i></a></li>
+                    <li class="social-net__item"><a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-rss"></i></a></li>
+                  </ul>
+                  <!-- end .social-list-->
+                </div>
+              </div>
+              <div class="col-md-4">
+                <section class="footer-section">
+                  <h3 class="footer-section__title ui-title-inner ui-title-inner_condensed"><span class="ui-title-inner__inner">our sources</span></h3>
+                  <section class="b-post b-post_img-left b-post_light b-post_img-100 clearfix">
+                    <div class="entry-media img-hover-effect margin20"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-top:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-top:20px; margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-top:20px; margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                  </section>
+                  <!-- end .post-->
+                </section>
+              </div>
+              <div class="col-md-4">
+                <section class="footer-section">
+                  <h3 class="footer-section__title ui-title-inner ui-title-inner_condensed"><span class="ui-title-inner__inner">our sponsor</span></h3>
+                  <section class="b-post b-post_img-left b-post_light b-post_img-100 clearfix">
+                    <div class="entry-media img-hover-effect margin20"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-top:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-top:20px; margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                    <div class="entry-media img-hover-effect" style="margin-top:20px; margin-left:20px;"><img class="img-responsive hov-scal" src="assets/media/content/posts/100x80/1.jpg" alt="Foto"/></div>
+                  </section>
+                  <!-- end .post-->
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <ul class="copyright-list list-inline">
+                </ul><span class="copyright__info">©  2017<strong> NEWSPAPER</strong> ® All Right Reserved</span>
+                <button type="button" onclick="clickShare()">jadsghagsdhjasgdjhdsgah</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- .footer-->
+    </div>
+    <!-- end layout-theme-->
+
+    <!-- MVP -->
+    <script>
+    axios({
+      method: 'get',
+      url:'http://localhost:3000/api/users',
+      headers: {
+        token: localStorage.getItem('token'),
+        fbid: localStorage.getItem('id'),
+        fbname: localStorage.getItem('name')
+      }
+    })
+    .then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    })
+
+    // let getFeed = function() {
+      axios({
+        method: 'get',
+        url:'http://localhost:3000/api/news/topHeadlines/'
+      })
+      .then((dataNews) => {
+        console.log(dataNews);
+        dataNews.data.articles.forEach(rows => {
+          let clickShares = function() {
+            console.log('masuk share');
+            axios({
+              method: 'post',
+              url:'http://localhost:3000/dummy',
+              headers: {
+                token: localStorage.getItem('token'),
+                fbid: localStorage.getItem('id'),
+                fbname: localStorage.getItem('name'),
+                linknews: rows.url,
+                linkimage: rows.urlToimage
+              }
+            })
+            .then((res) => {
+              console.log(res);
+            }).catch((err) => {
+              console.log(err);
+            })
+          }
+          // console.log('masukkkkkkkkkkkkkkkkk sini');
+          $('.posts-group-2').append(
+            `<section class="b-post b-post_img-left b-post_img-260 b-post_img-260_mrg-btm_sm clearfix">
+              <div class="entry-media">
+                <a class="img-hover-effect"><img class="img-responsive hov-scal img-border" src=${rows.urlToimage} alt="Foto"/></a></div>
+              <div class="entry-main">
+                <div class="entry-header">
+                  <h2 class="entry-title"><a href="#">${rows.title}</a></h2>
+                  <div class="entry-meta"><span class="entry-meta__item"><a class="entry-meta__link" href="">
+                    <strong>${rows.source.name}</strong></a></span>
+                    <span class="entry-meta__item"><a class="entry-meta__link" href="#"><strong>${rows.publishedAt.toString()}</strong></a></span>
+                    <span class="entry-meta__item"><i class="icon fa fa-heart-o text-second"></i><a class="entry-meta__link" href="#">50</a></span>
+                    <span class="entry-meta__item"><i class="icon fa fa-comment-o text-primary"></i><a class="entry-meta__link" href="#">29</a></span>
+                  </div>
+                </div>
+                <div class="entry-content">
+                  <p>${rows.description}</p>
+                  <span>
+                      <button type="button"><a href="#">Read More</a></button>
+                      <button type="button"><a href="#">Save News</a></button>
+                      <button type="button" onclick="clickShares()"><a href="#">Share News</a></button>
+                  </span>
+                </div>
+              </div>
+            </section>`
+          )
+        })
+      }).catch((err) => {
+        console.log(err);
+      })
+    // }
+
+    let clickShare = function() {
+      log('masuk')
+      axios({
+        method: 'post',
+        url:'http://localhost:3000/dummy',
+        headers: {
+          token: localStorage.getItem('token'),
+          fbid: localStorage.getItem('id'),
+          fbname: localStorage.getItem('name')
+        }
+      })
+      .then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+
+
+    </script>
+    <!-- ENF OF MVP -->
+    <!-- ++++++++++++-->
+    <!-- MAIN SCRIPTS-->
+    <!-- ++++++++++++-->
+    <script src="assets/libs/jquery-1.12.4.min.js"></script>
+    <script src="assets/libs/jquery-migrate-1.2.1.js"></script>
+     <script src="assets/libs/modernizr.custom.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/libs/bootstrap/bootstrap.min.js"></script>
+    <!-- User customization-->
+    <script src="assets/js/custom.js"></script>
+    <!-- Slider-->
+    <script src="assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <!-- Pop-up window-->
+    <script src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Headers scripts-->
+    <script src="assets/plugins/headers/jquery.dlmenu.js"></script>
+    <script src="assets/plugins/headers/slidebar.js"></script>
+    <script src="assets/plugins/headers/header.js"></script>
+    <!-- Mail scripts-->
+    <script src="assets/plugins/jqBootstrapValidation.js"></script>
+    <script src="assets/plugins/contact_me.js"></script>
+    <!-- Video player-->
+    <script src="assets/plugins/flowplayer/flowplayer.min.js"></script>
+    <!-- Filter and sorting images-->
+    <script src="assets/plugins/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/plugins/isotope/imagesLoaded.js"></script>
+    <!-- Progress numbers-->
+    <script src="assets/plugins/rendro-easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/plugins/rendro-easy-pie-chart/waypoints.min.js"></script>
+    <!-- Animations-->
+    <script src="assets/plugins/scrollreveal/scrollreveal.min.js"></script>
+    <!-- Ticker-->
+    <script src="assets/plugins/jquery-easy-ticker/jquery.easy-ticker.min.js"></script>
+  </body>
+</html>
